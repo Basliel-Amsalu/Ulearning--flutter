@@ -39,6 +39,9 @@ dependencies:
   dots_indicator:
   intl:
   cloud_firestore:
+  firebase_auth: ^4.14.0
+  firebase_core: ^2.22.0
+  fluttertoast: ^8.2.4
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +53,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  change_app_package_name: ^1.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

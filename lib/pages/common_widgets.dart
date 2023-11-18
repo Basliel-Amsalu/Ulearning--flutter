@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning/common/values/colors.dart';
 
-AppBar buildAppBar() {
+AppBar buildAppBar(String title) {
   return AppBar(
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(1.0),
@@ -13,7 +13,7 @@ AppBar buildAppBar() {
       ),
       title: Center(
           child: Text(
-        "Log In",
+        title,
         style: TextStyle(
             color: AppColors.primaryText,
             fontSize: 16.sp,
@@ -137,14 +137,14 @@ Widget buildLogInAndRegButton(
       margin: EdgeInsets.only(
           left: 25.w, right: 25.w, top: buttonType == "login" ? 40.h : 20.h),
       decoration: BoxDecoration(
-          color: buttonType == "login"
-              ? AppColors.primaryElement
-              : AppColors.primaryBackground,
+          color: buttonType == "register"
+              ? AppColors.primaryBackground
+              : AppColors.primaryElement,
           borderRadius: BorderRadius.circular(15.w),
           border: Border.all(
-              color: buttonType == "login"
-                  ? Colors.transparent
-                  : AppColors.primaryFourElementText),
+              color: buttonType == "register"
+                  ? AppColors.primaryFourElementText
+                  : Colors.transparent),
           boxShadow: [
             BoxShadow(
                 spreadRadius: 1,
@@ -158,9 +158,9 @@ Widget buildLogInAndRegButton(
         style: TextStyle(
           fontSize: 16.sp,
           fontWeight: FontWeight.normal,
-          color: buttonType == "login"
-              ? AppColors.primaryBackground
-              : AppColors.primaryText,
+          color: buttonType == "register"
+              ? AppColors.primaryText
+              : AppColors.primaryBackground,
         ),
       )),
     ),

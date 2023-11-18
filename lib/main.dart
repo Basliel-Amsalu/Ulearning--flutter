@@ -4,11 +4,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning/app_blocs.dart';
 import 'package:ulearning/app_events.dart';
 import 'package:ulearning/app_states.dart';
+import 'package:ulearning/common/values/colors.dart';
+import 'package:ulearning/pages/bloc_providers.dart';
+import 'package:ulearning/pages/register/register.dart';
+import 'package:ulearning/pages/sign_in/bloc/sign_in_blocs.dart';
 import 'package:ulearning/pages/sign_in/sign_in.dart';
 import 'package:ulearning/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:ulearning/pages/welcome/welcome.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: "AIzaSyAWFNfdu2MUPqDVWiF4UtgfFlbqep--o6k",
+      appId: "1:592869980729:android:bf4a4ea464b31b6193ebe8",
+      messagingSenderId: "592869980729",
+      projectId: "ulearning-app-ce95d",
+    ),
+  );
   runApp(const MyApp());
 }
 
@@ -19,25 +34,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            // lazy: true,
-            create: (context) => WelcomeBloc(),
-          ),
-          BlocProvider(
-            create: (context) => AppBlocs(),
-          ),
-        ],
+        providers: AppBlocProviders.allBlocProviders,
         child: ScreenUtilInit(
           builder: (context, child) => MaterialApp(
             title: 'Flutter Demo',
             theme: ThemeData(
                 appBarTheme: const AppBarTheme(
-                    elevation: 0, backgroundColor: Colors.white)),
+                    iconTheme: IconThemeData(color: AppColors.primaryText),
+                    elevation: 0,
+                    backgroundColor: Colors.white)),
             home: const Welcome(),
             routes: {
               "myHomePage": (context) => const MyHomePage(),
-              "signin": (context) => const SignIn()
+              "signin": (context) => const SignIn(),
+              "register": (context) => const Register(),
             },
           ),
         ));

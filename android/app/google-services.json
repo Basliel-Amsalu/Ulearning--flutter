@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "592869980729",
+    "project_id": "ulearning-app-ce95d",
+    "storage_bucket": "ulearning-app-ce95d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592869980729:android:bf4a4ea464b31b6193ebe8",
+        "android_client_info": {
+          "package_name": "com.chappie.ulearning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWFNfdu2MUPqDVWiF4UtgfFlbqep--o6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
