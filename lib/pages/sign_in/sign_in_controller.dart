@@ -30,14 +30,15 @@ class SignInController {
             toastInfo(msg: "user does not exist");
             return;
           }
-          if (!credential.user!.emailVerified) {
-            toastInfo(msg: "you need to verify your email account");
-            return;
-          }
+          // if (!credential.user!.emailVerified) {
+          //   toastInfo(msg: "you need to verify your email account");
+          //   return;
+          // }
 
           var user = credential.user;
           if (user != null) {
-            print("user exist");
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil("/application", (route) => false);
           } else {
             toastInfo(msg: "currently you are not a user of this app");
             return;

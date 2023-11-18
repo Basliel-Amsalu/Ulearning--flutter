@@ -5,5 +5,21 @@ class RegisterStates {
   final String confirmPassword;
 
   const RegisterStates(
-      this.userName, this.email, this.password, this.confirmPassword);
+      {this.userName = "",
+      this.email = "",
+      this.password = "",
+      this.confirmPassword = ""});
+
+  RegisterStates copyWith({
+    String? userName,
+    String? email,
+    String? password,
+    String? confirmPassword,
+  }) {
+    return RegisterStates(
+        userName: userName ?? this.userName,
+        email: email ?? this.email,
+        password: password ?? this.password,
+        confirmPassword: confirmPassword ?? this.confirmPassword);
+  }
 }
