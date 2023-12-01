@@ -60,8 +60,9 @@ class AppPages {
         bool deviceFirstOPen = Global.storageService.getDeviceFirstOpen();
         if (result.first.route == AppRoutes.INITIAL && deviceFirstOPen) {
           bool isLoggedIn = Global.storageService.getIsLoggedIn();
-          if(isLoggedIn){
-            return MaterialPageRoute(builder: (_) => const ApplicationPage(), settings: settings)
+          if (isLoggedIn) {
+            return MaterialPageRoute(
+                builder: (_) => const ApplicationPage(), settings: settings);
           }
           return MaterialPageRoute(
               builder: (_) => const SignIn(), settings: settings);
