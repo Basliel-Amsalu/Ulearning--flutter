@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning/common/values/colors.dart';
+import 'package:ulearning/common/values/constant.dart';
+import 'package:ulearning/global.dart';
 import 'package:ulearning/main.dart';
 import 'package:ulearning/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:ulearning/pages/welcome/bloc/welcome_events.dart';
@@ -120,6 +122,9 @@ class _WelcomeState extends State<Welcome> {
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.decelerate);
             } else {
+              Global.storageService
+                  .setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
+
               Navigator.of(context)
                   // .push(MaterialPageRoute(builder: (context) => MyHomePage()));
                   .pushNamedAndRemoveUntil("/signin", (route) => false);

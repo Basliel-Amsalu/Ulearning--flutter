@@ -6,18 +6,10 @@ import 'package:ulearning/common/routes/routes.dart';
 import 'package:ulearning/common/values/colors.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:ulearning/global.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Firebase.initializeApp(
-    options: const FirebaseOptions(
-      apiKey: "AIzaSyAWFNfdu2MUPqDVWiF4UtgfFlbqep--o6k",
-      appId: "1:592869980729:android:bf4a4ea464b31b6193ebe8",
-      messagingSenderId: "592869980729",
-      projectId: "ulearning-app-ce95d",
-    ),
-  );
+  await Global.init();
   runApp(const MyApp());
 }
 
