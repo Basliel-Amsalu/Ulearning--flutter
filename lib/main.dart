@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         providers: [...AppPages.allBlocProviders(context)],
         // providers: AppBlocProviders.allBlocProviders,
         child: ScreenUtilInit(
+          designSize: const Size(375, 812),
           builder: (context, child) => MaterialApp(
             title: 'Flutter Demo',
             theme: ThemeData(
