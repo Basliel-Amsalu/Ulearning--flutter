@@ -35,6 +35,8 @@ Widget settingsButton(BuildContext context) {
                   onPressed: () {
                     context.read<AppBlocs>().add(TriggerAppEvent(0));
                     Global.storageService
+                        .remove(AppConstants.STORAGE_USER_PROFILE_KEY);
+                    Global.storageService
                         .remove(AppConstants.STORAGE_USER_TOKEN_KEY);
                     Navigator.of(context).pushNamedAndRemoveUntil(
                         AppRoutes.SIGN_IN, (route) => false);
